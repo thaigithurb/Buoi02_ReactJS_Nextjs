@@ -59,7 +59,7 @@ console.log(allPlayers);
 const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
 console.log(players1Final);
 
-const { team1, draw, team2 } = game.odds;
+const { team1, x, team2 } = game.odds;
 
 const printGoals = (...playersName) => {
     for (let player of playersName) {
@@ -68,3 +68,16 @@ const printGoals = (...playersName) => {
 }
 
 printGoals(...game.scored);
+
+
+game.scored.forEach((player, index) => {
+    console.log(`Goal ${index + 1}: ${player}\n`);
+});
+
+const oddsArray = [team1, x, team2];
+let sum = 0;
+for (let i = 0; i < oddsArray.length; i++) {
+    sum += oddsArray[i];
+}
+const averageOdd = sum / oddsArray.length;
+console.log(averageOdd.toFixed(2));
